@@ -1,6 +1,6 @@
 package factsheet
 
-import "github.com/kalifun/vda5050"
+import "github.com/kalifun/vda5050-types-go"
 
 // AGVGeometry represents the physical dimensions of the AGV
 type AGVGeometry struct {

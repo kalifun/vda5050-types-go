@@ -1,6 +1,6 @@
 package state
 
-import "github.com/kalifun/vda5050"
+import "github.com/kalifun/vda5050-types-go"
 
 // BatteryState represents the current battery status of the AGV
 type BatteryState struct {

@@ -1,6 +1,6 @@
 package visualization
 
-import "github.com/kalifun/vda5050"
+import vda5050 "github.com/kalifun/vda5050-types-go"
 
 // AGVPosition represents the current position and orientation of an AGV
 type AGVPosition struct {

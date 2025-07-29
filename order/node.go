@@ -1,6 +1,6 @@
 package order
 
-import "github.com/kalifun/vda5050"
+import "github.com/kalifun/vda5050-types-go"
 
 // NodePosition defines the position of a node in world coordinates
 type NodePosition struct {

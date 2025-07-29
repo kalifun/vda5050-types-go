@@ -1,6 +1,6 @@
 package order
 
-import "github.com/kalifun/vda5050"
+import "github.com/kalifun/vda5050-types-go"
 
 // Order represents a VDA5050 order message
 type Order struct {

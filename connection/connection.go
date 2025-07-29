@@ -1,6 +1,6 @@
 package connection
 
-import "github.com/kalifun/vda5050"
+import "github.com/kalifun/vda5050-types-go"
 
 // ConnectionState represents the current connection state
 type ConnectionState string

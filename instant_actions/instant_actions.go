@@ -1,6 +1,6 @@
 package instant_actions
 
-import "github.com/kalifun/vda5050"
+import "github.com/kalifun/vda5050-types-go"
 
 // InstantAction represents an action to be executed immediately
 type InstantAction struct {
