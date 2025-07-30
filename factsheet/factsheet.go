@@ -20,10 +20,10 @@ type LoadSpecification struct {
 
 // ActionParameter represents a parameter for an action
 type ActionParameter struct {
-	Key         string `json:"key"`         // Parameter key
-	Type        string `json:"type"`        // Parameter type (string, number, boolean)
-	Description string `json:"description"` // Parameter description
-	IsOptional  bool   `json:"isOptional"`  // Whether parameter is optional
+	Key           string `json:"key"`           // Parameter key
+	ValueDataType string `json:"valueDataType"` // Parameter type (string, number, boolean)
+	Description   string `json:"description"`   // Parameter description
+	IsOptional    bool   `json:"isOptional"`    // Whether parameter is optional
 }
 
 // ActionDefinition represents an action supported by the AGV

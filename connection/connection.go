@@ -6,9 +6,9 @@ import "github.com/kalifun/vda5050-types-go"
 type ConnectionState string
 
 const (
-	Online     ConnectionState = "ONLINE"
-	Offline    ConnectionState = "OFFLINE"
-	Connecting ConnectionState = "CONNECTIONBROKEN"
+	Online           ConnectionState = "ONLINE"
+	Offline          ConnectionState = "OFFLINE"
+	ConnectionBroken ConnectionState = "CONNECTIONBROKEN"
 )
 
 // Connection represents the connection status message
