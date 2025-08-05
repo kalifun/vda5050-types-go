@@ -12,10 +12,20 @@ type BatteryState struct {
 
 // SafetyState represents the safety-related status of the AGV
 type SafetyState struct {
-	EStop            bool `json:"eStop"`            // Emergency stop active
-	FieldViolation   bool `json:"fieldViolation"`   // Protective field violation
-	SafetyFieldMuted bool `json:"safetyFieldMuted"` // Safety fields are muted
+	EStop            EStop `json:"eStop"`            // Emergency stop active
+	FieldViolation   bool  `json:"fieldViolation"`   // Protective field violation
+	SafetyFieldMuted bool  `json:"safetyFieldMuted"` // Safety fields are muted
 }
+
+// EStop represents the emergency stop status of the AGV
+type EStop string
+
+const (
+	EStopAutoAck EStop = "AUTOACK" // auto-acknowledgeable e-stop is activated, e.g., by bumper or protective field.
+	EStopManual  EStop = "MANUAL"  // e-stop hast to be acknowledged manually at the vehicle.
+	EStopRemote  EStop = "REMOTE"  // facility e-stop has to be acknowledged remotely.
+	EStopNone    EStop = "NONE"    // no e-stop activated.
+)
 
 // ErrorLevel represents the severity of an error
 type ErrLevel string
