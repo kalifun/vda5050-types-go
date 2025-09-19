@@ -70,10 +70,21 @@ type MaxStringLens struct {
 }
 
 type ProtocolLimits struct {
-	MaxStringLens   *MaxStringLens `json:"maxStringLens,omitempty"`
-	IdLen           *uint32        `json:"idLen,omitempty"`
-	IdNumericalOnly *bool          `json:"idNumericalOnly,omitempty"`
-	EnumLen         *uint32        `json:"enumLen,omitempty"`
+    MaxStringLens   *MaxStringLens `json:"maxStringLens,omitempty"`
+    MaxArrayLens    *MaxArrayLens  `json:"maxArrayLens,omitempty"`
+    IdLen           *uint32        `json:"idLen,omitempty"`
+    IdNumericalOnly *bool          `json:"idNumericalOnly,omitempty"`
+    EnumLen         *uint32        `json:"enumLen,omitempty"`
+}
+
+// MaxArrayLens describes maximum lengths for various arrays
+type MaxArrayLens struct {
+    OrderNodes               *uint32 `json:"order.nodes,omitempty"`
+    OrderEdges               *uint32 `json:"order.edges,omitempty"`
+    TrajectoryKnotVector     *uint32 `json:"trajectory.knotVector,omitempty"`
+    TrajectoryControlPoints  *uint32 `json:"trajectory.controlPoints,omitempty"`
+    StateNodeStates          *uint32 `json:"state.nodeStates,omitempty"`
+    StateEdgeStates          *uint32 `json:"state.edgeStates,omitempty"`
 }
 
 // ----- protocolFeatures -----
