@@ -14,9 +14,7 @@ const (
 // Connection represents the connection status message
 type Connection struct {
 	vda5050.ProtocolHeader
-	ConnectionState   ConnectionState `json:"connectionState"`   // Current connection state
-	Version           string          `json:"version"`           // Protocol version
-	SupportedVersions []string        `json:"supportedVersions"` // List of supported versions
+	ConnectionState ConnectionState `json:"connectionState"` // Current connection state
 }
 
 // LastWill represents the last will message for MQTT
