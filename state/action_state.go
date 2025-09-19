@@ -1,21 +1,22 @@
 package state
 
-// ActionStatus represents the current status of an action
+// ActionStatus represents the current status of an action (per docs/state.md)
 type ActionStatus string
 
 const (
-	Waiting  ActionStatus = "waiting"  // Action has not started
-	Running  ActionStatus = "running"  // Action is being executed
-	Paused   ActionStatus = "paused"   // Action is paused
-	Finished ActionStatus = "finished" // Action completed successfully
-	Failed   ActionStatus = "failed"   // Action failed to complete
+	ActionWaiting      ActionStatus = "WAITING"
+	ActionInitializing ActionStatus = "INITIALIZING"
+	ActionRunning      ActionStatus = "RUNNING"
+	ActionPaused       ActionStatus = "PAUSED"
+	ActionFinished     ActionStatus = "FINISHED"
+	ActionFailed       ActionStatus = "FAILED"
 )
 
 // ActionState represents the current state of an action
 type ActionState struct {
-	ActionId     string       `json:"actionId"`             // Unique ID of the action
-	ActionType   string       `json:"actionType"`           // Type of the action
-	ActionStatus ActionStatus `json:"actionStatus"`         // Current status
-	ResultDesc   *string      `json:"resultDesc,omitempty"` // Description of the result
-	ErrorDesc    *string      `json:"errorDesc,omitempty"`  // Description of error if failed
+	ActionId          string       `json:"actionId"`                    // Unique ID of the action
+	ActionType        *string      `json:"actionType,omitempty"`        // Type of the action (optional)
+	ActionDescription *string      `json:"actionDescription,omitempty"` // Additional information on the action (optional)
+	ActionStatus      ActionStatus `json:"actionStatus"`                // Current status
+	ResultDescription *string      `json:"resultDescription,omitempty"` // Description of the result (optional)
 }

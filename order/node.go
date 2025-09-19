@@ -4,13 +4,13 @@ import "github.com/kalifun/vda5050-types-go"
 
 // NodePosition defines the position of a node in world coordinates
 type NodePosition struct {
-	X                     float64 `json:"x"`                        // X coordinate in meters
-	Y                     float64 `json:"y"`                        // Y coordinate in meters
-	Theta                 float64 `json:"theta"`                    // Orientation in radians (-π to π)
-	AllowedDeviationXY    float64 `json:"allowedDeviationXY"`       // Maximum deviation in position in meters
-	AllowedDeviationTheta float64 `json:"allowedDeviationTheta"`    // Maximum deviation in orientation in radians
-	MapId                 string  `json:"mapId"`                    // ID of the map the node is located in
-	MapDescription        *string `json:"mapDescription,omitempty"` // Optional description of the map
+	X                     float64  `json:"x"`                               // X coordinate in meters
+	Y                     float64  `json:"y"`                               // Y coordinate in meters
+	Theta                 *float64 `json:"theta,omitempty"`                 // Orientation in radians (-π to π) (optional)
+	AllowedDeviationXY    *float64 `json:"allowedDeviationXY,omitempty"`    // Maximum deviation in position in meters (optional)
+	AllowedDeviationTheta *float64 `json:"allowedDeviationTheta,omitempty"` // Maximum deviation in orientation in radians (optional)
+	MapId                 string   `json:"mapId"`                           // ID of the map the node is located in
+	MapDescription        *string  `json:"mapDescription,omitempty"`        // Optional description of the map
 }
 
 // Action represents an action to be executed at a node or edge
@@ -19,8 +19,7 @@ type Action struct {
 	ActionId          string                    `json:"actionId"`                    // Unique ID of the action
 	ActionDescription *string                   `json:"actionDescription,omitempty"` // Optional description of the action
 	BlockingType      vda5050.BlockingType      `json:"blockingType"`                // NONE, SOFT or HARD
-	Description       *string                   `json:"description,omitempty"`       // Optional description
-	Parameters        []vda5050.ActionParameter `json:"parameters,omitempty"`        // Optional parameters
+	Parameters        []vda5050.ActionParameter `json:"actionParameters,omitempty"`  // Optional parameters (per spec)
 }
 
 // Node represents a node in the order's path
