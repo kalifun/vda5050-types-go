@@ -1,7 +1,8 @@
 package state
 
 import (
-	"github.com/kalifun/vda5050-types-go"
+    "github.com/kalifun/vda5050-types-go"
+    "github.com/kalifun/vda5050-types-go/order"
 )
 
 // BatteryState represents the current battery status of the AGV (see state.md)
@@ -94,33 +95,23 @@ type State struct {
 
 // NodeState represents the state of a node to traverse
 type NodeState struct {
-	NodeId          string        `json:"nodeId"`                    // Unique node identification
-	SequenceId      uint32        `json:"sequenceId"`                // Sequence ID for duplicate nodeIds
-	NodeDescription *string       `json:"nodeDescription,omitempty"` // Additional information on the node
-	Released        bool          `json:"released"`                  // true: base, false: horizon
-	NodePosition    *NodePosition `json:"nodePosition,omitempty"`    // Optional position information (from order spec)
+    NodeId          string              `json:"nodeId"`                    // Unique node identification
+    SequenceId      uint32              `json:"sequenceId"`                // Sequence ID for duplicate nodeIds
+    NodeDescription *string             `json:"nodeDescription,omitempty"` // Additional information on the node
+    Released        bool                `json:"released"`                  // true: base, false: horizon
+    NodePosition    *order.NodePosition `json:"nodePosition,omitempty"`    // Optional position information (from order spec)
 }
 
 // EdgeState represents the state of an edge to traverse
 type EdgeState struct {
-	EdgeId          string      `json:"edgeId"`                    // Unique edge identification
-	SequenceId      uint32      `json:"sequenceId"`                // Sequence ID for duplicate edgeIds
-	EdgeDescription *string     `json:"edgeDescription,omitempty"` // Additional information on the edge
-	Released        bool        `json:"released"`                  // true: base, false: horizon
-	Trajectory      *Trajectory `json:"trajectory,omitempty"`      // Optional trajectory (NURBS), see order spec
+    EdgeId          string            `json:"edgeId"`                    // Unique edge identification
+    SequenceId      uint32            `json:"sequenceId"`                // Sequence ID for duplicate edgeIds
+    EdgeDescription *string           `json:"edgeDescription,omitempty"` // Additional information on the edge
+    Released        bool              `json:"released"`                  // true: base, false: horizon
+    Trajectory      *order.Trajectory `json:"trajectory,omitempty"`      // Optional trajectory (NURBS), see order spec
 }
 
-// NodePosition mirrors the position structure used in the order topic
-type NodePosition struct {
-	X              float64 `json:"x"`
-	Y              float64 `json:"y"`
-	Theta          float64 `json:"theta"`
-	MapId          string  `json:"mapId"`
-	MapDescription *string `json:"mapDescription,omitempty"`
-}
-
-// Trajectory is a placeholder for the NURBS trajectory from the order spec
-type Trajectory struct{}
+// NodePosition and Trajectory are reused from the order package
 
 // AgvPosition describes the current position of the AGV
 type AgvPosition struct {
