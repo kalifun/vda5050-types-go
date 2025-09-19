@@ -93,6 +93,20 @@ type State struct {
 	SafetyState           SafetyState   `json:"safetyState"`                     // Current safety state
 }
 
+// NewState returns a State with consistent zero-values and initialized slices
+// to ensure stable JSON serialization (e.g., errors/information as empty arrays).
+func NewState(header vda5050.ProtocolHeader) *State {
+    return &State{
+        ProtocolHeader: header,
+        Maps:           []Map{},
+        NodeStates:     []NodeState{},
+        EdgeStates:     []EdgeState{},
+        ActionStates:   []ActionState{},
+        Errors:         []Error{},
+        Information:    []Info{},
+    }
+}
+
 // NodeState represents the state of a node to traverse
 type NodeState struct {
     NodeId          string              `json:"nodeId"`                    // Unique node identification

@@ -19,6 +19,22 @@ type Connection struct {
 
 // LastWill represents the last will message for MQTT
 type LastWill struct {
-	vda5050.ProtocolHeader
-	ConnectionState ConnectionState `json:"connectionState"` // Set to OFFLINE
+    vda5050.ProtocolHeader
+    ConnectionState ConnectionState `json:"connectionState"` // Set to OFFLINE
+}
+
+// NewConnection creates a connection message with the given state
+func NewConnection(header vda5050.ProtocolHeader, state ConnectionState) *Connection {
+    return &Connection{
+        ProtocolHeader: header,
+        ConnectionState: state,
+    }
+}
+
+// NewLastWillOffline creates a last-will message preset to OFFLINE
+func NewLastWillOffline(header vda5050.ProtocolHeader) *LastWill {
+    return &LastWill{
+        ProtocolHeader: header,
+        ConnectionState: Offline,
+    }
 }

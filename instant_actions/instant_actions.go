@@ -13,6 +13,14 @@ type InstantAction struct {
 
 // InstantActions represents a message containing instant actions
 type InstantActions struct {
-	vda5050.ProtocolHeader
-	Actions []InstantAction `json:"actions"` // List of actions to execute
+    vda5050.ProtocolHeader
+    Actions []InstantAction `json:"actions"` // List of actions to execute
+}
+
+// NewInstantActions returns an InstantActions message with an initialized action list
+func NewInstantActions(header vda5050.ProtocolHeader) *InstantActions {
+    return &InstantActions{
+        ProtocolHeader: header,
+        Actions:        []InstantAction{},
+    }
 }
